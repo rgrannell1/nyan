@@ -3,6 +3,7 @@
 Terminal Nyan Cat animation, ported from Python 2 (taizilongxu/nyancat).
 
 @/home/rg/Agents/AGENTS.md
+@/home/rg/Agents/agents.python.md
 
 ## Running
 
