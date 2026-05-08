@@ -181,6 +181,50 @@ SCHEME_PINKS: ColourScheme = {
     'rainbow': ',,>>&&&+++###==;;;,,',
 }
 
+# Poland — white and red horizontal bands matching the Polish flag
+SCHEME_POLAND: ColourScheme = {
+    'colors': {
+        ',': '\033[48;5;17m',    # dark navy background
+        '.': '\033[48;5;231m',   # white (stars)
+        "'": '\033[48;5;16m',    # black
+        '@': '\033[48;5;231m',   # white (cat body)
+        '$': '\033[48;5;252m',   # light grey (cat body tint)
+        '-': '\033[48;5;196m',   # Polish red (detail)
+        '>': '\033[48;5;160m',   # Polish red
+        '&': '\033[48;5;124m',   # deeper red
+        '+': '\033[48;5;231m',   # white
+        '#': '\033[48;5;252m',   # light grey
+        '=': '\033[48;5;196m',   # red
+        ';': '\033[48;5;160m',   # deeper red
+        '*': '\033[48;5;240m',   # grey
+        '%': '\033[48;5;252m',   # light grey
+    },
+    # white (top), red (bottom) — equal halves matching the Polish flag
+    'rainbow': ',,........>>>>>>>>,,',
+}
+
+# Germany — black, red, and gold horizontal bands matching the Bundesflagge
+SCHEME_GERMANY: ColourScheme = {
+    'colors': {
+        ',': '\033[48;5;232m',   # near-black background
+        '.': '\033[48;5;220m',   # gold (stars)
+        "'": '\033[48;5;16m',    # black
+        '@': '\033[48;5;252m',   # light grey (cat body)
+        '$': '\033[48;5;244m',   # mid grey (cat body tint)
+        '-': '\033[48;5;235m',   # dark grey (detail)
+        '>': '\033[48;5;160m',   # German red
+        '&': '\033[48;5;124m',   # deeper red
+        '+': '\033[48;5;220m',   # German gold
+        '#': '\033[48;5;214m',   # darker gold
+        '=': '\033[48;5;235m',   # near-black
+        ';': '\033[48;5;233m',   # very dark
+        '*': '\033[48;5;235m',   # near-black (rainbow black band)
+        '%': '\033[48;5;244m',   # grey
+    },
+    # black (top), red (middle), gold (bottom)
+    'rainbow': ',,******>>>>>+++++,,'
+}
+
 SCHEMES: dict[str, ColourScheme] = {
     'rainbow': SCHEME_RAINBOW,
     'trans': SCHEME_TRANS,
@@ -190,4 +234,6 @@ SCHEMES: dict[str, ColourScheme] = {
     'india': SCHEME_INDIA,
     'sealand': SCHEME_SEALAND,
     'pinks': SCHEME_PINKS,
+    'germany': SCHEME_GERMANY,
+    'poland': SCHEME_POLAND,
 }

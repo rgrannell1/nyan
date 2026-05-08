@@ -45,7 +45,9 @@ NATIONAL_DAYS: dict[tuple[int, int], str] = {
     (8, 15): 'india',     # India Independence Day
     (9, 2):  'sealand',   # Sealand founding
     (10, 1): 'cyprus',    # Cyprus Independence Day
+    (10, 3):  'germany',  # Tag der Deutschen Einheit
     (10, 12): 'spain',    # Fiesta Nacional de España
+    (11, 11): 'poland',   # Święto Niepodległości
 }
 
 
