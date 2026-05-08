@@ -42,6 +42,7 @@ PRIDE_MONTH = 6  # June
 NATIONAL_DAYS: dict[tuple[int, int], str] = {
     (3, 8):  'pinks',     # International Women's Day
     (3, 17): 'ireland',   # St. Patrick's Day
+    (6, 2):  'italy',     # Festa della Repubblica
     (8, 15): 'india',     # India Independence Day
     (9, 2):  'sealand',   # Sealand founding
     (10, 1): 'cyprus',    # Cyprus Independence Day

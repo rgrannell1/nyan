@@ -160,6 +160,28 @@ SCHEME_SEALAND: ColourScheme = {
     'rainbow': ',,*****+++++>>>>>>,,'
 }
 
+# Italy — green, white, and red vertical tricolour
+SCHEME_ITALY: ColourScheme = {
+    'colors': {
+        ',': '\033[48;5;17m',    # dark navy background
+        '.': '\033[48;5;231m',   # white (stars + white stripe)
+        "'": '\033[48;5;16m',    # black
+        '@': '\033[48;5;230m',   # cream (cat body)
+        '$': '\033[48;5;157m',   # light green (cat body tint)
+        '-': '\033[48;5;28m',    # Italian green (detail)
+        '>': '\033[48;5;196m',   # Italian red
+        '&': '\033[48;5;160m',   # deeper red
+        '+': '\033[48;5;231m',   # white
+        '#': '\033[48;5;28m',    # Italian green
+        '=': '\033[48;5;196m',   # red
+        ';': '\033[48;5;160m',   # deeper red
+        '*': '\033[48;5;240m',   # grey
+        '%': '\033[48;5;157m',   # light green
+    },
+    # green (top), white (middle), red (bottom)
+    'rainbow': ',,######.....>>>>>,,',
+}
+
 # Pinks — hot pinks, magentas, and purples throughout; dark purple background
 SCHEME_PINKS: ColourScheme = {
     'colors': {
@@ -236,4 +258,5 @@ SCHEMES: dict[str, ColourScheme] = {
     'pinks': SCHEME_PINKS,
     'germany': SCHEME_GERMANY,
     'poland': SCHEME_POLAND,
+    'italy': SCHEME_ITALY,
 }
