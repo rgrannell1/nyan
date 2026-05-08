@@ -225,6 +225,50 @@ SCHEME_POLAND: ColourScheme = {
     'rainbow': ',,........>>>>>>>>,,',
 }
 
+# Italy — green, white, and red vertical bands; represented as horizontal stripes in the trail
+SCHEME_ITALY: ColourScheme = {
+    'colors': {
+        ',': '\033[48;5;17m',    # dark navy background
+        '.': '\033[48;5;231m',   # white (stars)
+        "'": '\033[48;5;16m',    # black
+        '@': '\033[48;5;230m',   # cream (cat body)
+        '$': '\033[48;5;157m',   # light green (cat body tint)
+        '-': '\033[48;5;28m',    # Italian green (detail)
+        '>': '\033[48;5;196m',   # Italian red
+        '&': '\033[48;5;160m',   # deeper red
+        '+': '\033[48;5;231m',   # white
+        '#': '\033[48;5;28m',    # Italian green
+        '=': '\033[48;5;34m',    # brighter green
+        ';': '\033[48;5;160m',   # dark red
+        '*': '\033[48;5;240m',   # grey
+        '%': '\033[48;5;157m',   # light green
+    },
+    # green (top), white (middle), red (bottom) — equal thirds
+    'rainbow': ',,#####.....>>>>>>,,',
+}
+
+# Greece — nine alternating blue and white stripes; blue canton with white cross
+SCHEME_GREECE: ColourScheme = {
+    'colors': {
+        ',': '\033[48;5;17m',    # dark navy background
+        '.': '\033[48;5;231m',   # white (stars)
+        "'": '\033[48;5;16m',    # black
+        '@': '\033[48;5;230m',   # cream (cat body)
+        '$': '\033[48;5;75m',    # light Greek blue (cat body tint)
+        '-': '\033[48;5;26m',    # Greek blue (detail)
+        '>': '\033[48;5;27m',    # Greek blue
+        '&': '\033[48;5;26m',    # deeper blue
+        '+': '\033[48;5;231m',   # white
+        '#': '\033[48;5;33m',    # medium blue
+        '=': '\033[48;5;26m',    # Greek blue
+        ';': '\033[48;5;19m',    # dark blue
+        '*': '\033[48;5;240m',   # grey
+        '%': '\033[48;5;75m',    # light blue
+    },
+    # nine stripes: blue-white-blue-white-blue-white-blue-white-blue
+    'rainbow': ',,>>++>>+>>+>>+>>>,,'
+}
+
 # Germany — black, red, and gold horizontal bands matching the Bundesflagge
 SCHEME_GERMANY: ColourScheme = {
     'colors': {
@@ -259,4 +303,5 @@ SCHEMES: dict[str, ColourScheme] = {
     'germany': SCHEME_GERMANY,
     'poland': SCHEME_POLAND,
     'italy': SCHEME_ITALY,
+    'greece': SCHEME_GREECE,
 }

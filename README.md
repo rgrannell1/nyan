@@ -10,7 +10,7 @@ Terminal Nyan Cat animation, ported from [taizilongxu/nyancat](https://github.co
 python3 nyancat.py [--scheme SCHEME] [--random]
 ```
 
-`--scheme` picks a colour scheme: `rainbow` (default), `trans`, `ireland`, `italy`, `cyprus`, `spain`, `india`, `sealand`, `pinks`, `germany`, `poland`.
+`--scheme` picks a colour scheme: `rainbow` (default), `trans`, `ireland`, `italy`, `cyprus`, `spain`, `india`, `sealand`, `pinks`, `germany`, `poland`, `greece`.
 
 `--random` picks one at random.
 
