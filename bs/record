@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Records nyancat running in an xterm and exports as a GIF via ffmpeg.
+#
+# Usage: rs record [output.gif] [scheme] [duration_secs]
+#   output.gif     defaults to nyan.gif
+#   scheme         defaults to rainbow
+#   duration_secs  defaults to 6 (covers several animation loops)
+#
+# Dependencies: python3, xterm, xdotool, ffmpeg
+# Requires an X11 display — does not work on Wayland without XWayland.
+set -euo pipefail
+
+for cmd in python3 xterm xdotool import ffmpeg; do
+    command -v "$cmd" &>/dev/null || { echo "error: $cmd is required" >&2; exit 1; }
+done
+
+PROJECT_ROOT="$(realpath "$(dirname "${BASH_SOURCE[0]}")/..")"
+OUTFILE="${1:-${PROJECT_ROOT}/nyan.gif}"
+SCHEME="${2:-rainbow}"
+DURATION="${3:-6}"
+WINDOW_TITLE="nyancat-record"
+NYANCAT="$(realpath "$(dirname "${BASH_SOURCE[0]}")/../nyancat.py")"
+TMP_DIR=$(mktemp -d)
+FRAMES_DIR="${TMP_DIR}/frames"
+mkdir -p "${FRAMES_DIR}"
+
+# 130×66: full 64×64 frame visible (see bs/preview for geometry rationale)
+GEOMETRY="130x66"
+FPS=12
+
+echo "launching nyancat (scheme: ${SCHEME})..."
+xterm -title "${WINDOW_TITLE}" -geometry "${GEOMETRY}" \
+    -bg black -fg white -fs 12 \
+    -e "python3 ${NYANCAT} --scheme ${SCHEME}" &
+xterm_pid=$!
+
+# Wait for the window to appear, then let nyancat start rendering
+until xdotool search --name "${WINDOW_TITLE}" &>/dev/null; do sleep 0.2; done
+WIN_ID=$(xdotool search --name "${WINDOW_TITLE}" | tail -1)
+sleep 1
+
+# Capture frames using import (same method as rs preview — known to work)
+FRAME_COUNT=$(( DURATION * FPS ))
+echo "recording ${DURATION}s at ${FPS}fps (${FRAME_COUNT} frames)..."
+for idx in $(seq 1 "${FRAME_COUNT}"); do
+    import -window "${WIN_ID}" "$(printf '%s/%05d.png' "${FRAMES_DIR}" "${idx}")"
+    sleep "$(echo "scale=4; 1 / ${FPS}" | bc)"
+done
+
+kill "${xterm_pid}" 2>/dev/null || true
+wait "${xterm_pid}" 2>/dev/null || true
+
+# Assemble frames into GIF with palette optimisation
+echo "encoding GIF..."
+ffmpeg -framerate "${FPS}" -i "${FRAMES_DIR}/%05d.png" \
+    -filter_complex "scale=640:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+    -y "${OUTFILE}"
+
+rm -rf "${TMP_DIR}"
+echo "done: ${OUTFILE}"

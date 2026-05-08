@@ -2,6 +2,8 @@
 
 Terminal Nyan Cat animation, ported from [taizilongxu/nyancat](https://github.com/taizilongxu/nyancat).
 
+![nyan](nyan.gif)
+
 ![preview](preview.png)
 
 ## Usage
