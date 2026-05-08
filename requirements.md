@@ -1,0 +1,5 @@
+Improve the Python quality of nyancat.py by factoring magic numbers and string literals out into named constants. This covers ANSI escape sequences, timing values, and numeric literals used in the rainbow and viewport calculations.
+
+Add support for selectable colour schemes via a --scheme CLI argument. There are seven schemes: rainbow (the classic nyancat palette, used as the default outside June), trans (trans flag colours — light blue, pink, and white — auto-selected in June for pride month), ireland, cyprus, spain, india, and sealand. Each flag scheme applies that flag's colours to both the rainbow trail and the poptart stripes. The pinks scheme is removed.
+
+Add a --random flag (mutually exclusive with --scheme) that selects a scheme at random. When neither flag is given, the scheme auto-selects by date: Ireland on March 17 (St. Patrick's Day), Cyprus on October 1, Spain on October 12 (Fiesta Nacional), India on August 15 (Independence Day), Sealand on September 2 (founding date), trans throughout June (pride month), and rainbow otherwise.
