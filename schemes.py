@@ -80,18 +80,18 @@ SCHEME_CYPRUS: ColourScheme = {
         "'": '\033[48;5;16m',    # black
         '@': '\033[48;5;230m',   # cream (cat body)
         '$': '\033[48;5;180m',   # warm tan (cat body)
-        '-': '\033[48;5;136m',   # copper detail
-        '>': '\033[48;5;172m',   # copper
+        '-': '\033[48;5;172m',   # copper detail
+        '>': '\033[48;5;172m',   # copper (used in rainbow)
         '&': '\033[48;5;136m',   # deeper copper
         '+': '\033[48;5;231m',   # white
-        '#': '\033[48;5;58m',    # olive green
+        '#': '\033[48;5;64m',    # olive green (brighter than 58)
         '=': '\033[48;5;22m',    # dark olive green
-        ';': '\033[48;5;58m',    # olive green
+        ';': '\033[48;5;64m',    # olive green
         '*': '\033[48;5;240m',   # grey
         '%': '\033[48;5;180m',   # tan
     },
-    # white (top), copper (middle), olive green (bottom)
-    'rainbow': ',,......++++######,,'
+    # white (top), copper (middle — was broken, now uses > not +), olive green (bottom)
+    'rainbow': ',,......>>>>######,,'
 }
 
 # Spain — red and golden yellow in 1:2:1 ratio matching the flag's horizontal bands
@@ -141,20 +141,20 @@ SCHEME_INDIA: ColourScheme = {
 # Sealand — black, gold, and red from the Principality of Sealand flag
 SCHEME_SEALAND: ColourScheme = {
     'colors': {
-        ',': '\033[48;5;232m',   # near-black background
+        ',': '\033[48;5;17m',    # dark navy background (contrast for black stripe + cat body)
         '.': '\033[48;5;220m',   # gold (stars become gold coins)
         "'": '\033[48;5;16m',    # black
-        '@': '\033[48;5;238m',   # dark grey (cat body)
-        '$': '\033[48;5;244m',   # medium grey (cat body)
-        '-': '\033[48;5;234m',   # very dark grey (detail)
+        '@': '\033[48;5;252m',   # light grey (cat body — visible against navy)
+        '$': '\033[48;5;248m',   # medium grey (cat body)
+        '-': '\033[48;5;240m',   # grey (detail)
         '>': '\033[48;5;196m',   # red
         '&': '\033[48;5;160m',   # darker red
         '+': '\033[48;5;220m',   # gold
         '#': '\033[48;5;136m',   # dark gold
         '=': '\033[48;5;88m',    # dark red
         ';': '\033[48;5;88m',    # dark red
-        '*': '\033[48;5;236m',   # very dark grey (cat shadow)
-        '%': '\033[48;5;240m',   # dark grey
+        '*': '\033[48;5;232m',   # near-black (rainbow black stripe — readable against navy)
+        '%': '\033[48;5;244m',   # grey
     },
     # black (top), gold (middle), red (bottom)
     'rainbow': ',,*****+++++>>>>>>,,'
@@ -190,11 +190,11 @@ SCHEME_POLAND: ColourScheme = {
         '@': '\033[48;5;231m',   # white (cat body)
         '$': '\033[48;5;252m',   # light grey (cat body tint)
         '-': '\033[48;5;196m',   # Polish red (detail)
-        '>': '\033[48;5;160m',   # Polish red
-        '&': '\033[48;5;124m',   # deeper red
+        '>': '\033[48;5;196m',   # Polish red (brighter)
+        '&': '\033[48;5;160m',   # deeper red
         '+': '\033[48;5;231m',   # white
         '#': '\033[48;5;252m',   # light grey
-        '=': '\033[48;5;196m',   # red
+        '=': '\033[48;5;196m',   # Polish red
         ';': '\033[48;5;160m',   # deeper red
         '*': '\033[48;5;240m',   # grey
         '%': '\033[48;5;252m',   # light grey
@@ -206,19 +206,19 @@ SCHEME_POLAND: ColourScheme = {
 # Germany — black, red, and gold horizontal bands matching the Bundesflagge
 SCHEME_GERMANY: ColourScheme = {
     'colors': {
-        ',': '\033[48;5;232m',   # near-black background
+        ',': '\033[48;5;17m',    # dark navy background (contrast for black stripe)
         '.': '\033[48;5;220m',   # gold (stars)
         "'": '\033[48;5;16m',    # black
         '@': '\033[48;5;252m',   # light grey (cat body)
         '$': '\033[48;5;244m',   # mid grey (cat body tint)
-        '-': '\033[48;5;235m',   # dark grey (detail)
+        '-': '\033[48;5;240m',   # grey (detail)
         '>': '\033[48;5;160m',   # German red
         '&': '\033[48;5;124m',   # deeper red
         '+': '\033[48;5;220m',   # German gold
         '#': '\033[48;5;214m',   # darker gold
-        '=': '\033[48;5;235m',   # near-black
-        ';': '\033[48;5;233m',   # very dark
-        '*': '\033[48;5;235m',   # near-black (rainbow black band)
+        '=': '\033[48;5;232m',   # near-black
+        ';': '\033[48;5;232m',   # near-black
+        '*': '\033[48;5;232m',   # near-black (rainbow black band — readable against navy)
         '%': '\033[48;5;244m',   # grey
     },
     # black (top), red (middle), gold (bottom)

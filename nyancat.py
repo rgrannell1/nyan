@@ -22,7 +22,7 @@ ANSI_CURSOR_HOME = '\033[H'
 ANSI_RESET = '\033[0m'
 
 # Pixel rendering
-PIXEL_CHAR = ' '  # single space rendered with a background colour
+PIXEL_CHAR = '  '  # two spaces — matches viewport's terminal_width // 2 assumption for square pixels
 
 # Frame timing
 FRAME_DELAY_SECS = 0.06  # ~17 fps

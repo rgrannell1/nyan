@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# Renders each nyancat colour scheme in an xterm, screenshots it, and assembles a preview grid.
+#
+# Usage: rs preview [output.png]
+#   output.png  defaults to preview.png in the current directory
+#
+# Dependencies: python3, xterm, xdotool, imagemagick (import + montage)
+# Requires an X11 display — does not work on Wayland without XWayland.
+#
+# Scheme list is read dynamically from schemes.py so new schemes appear automatically.
+# Each xterm is sized 130×66 to fit the full 64×64 nyancat frame.
+set -euo pipefail
+
+for cmd in python3 xterm xdotool import montage; do
+    command -v "$cmd" &>/dev/null || { echo "error: $cmd is required" >&2; exit 1; }
+done
+
+mapfile -t SCHEMES < <(python3 -c "from schemes import SCHEMES; print('\n'.join(SCHEMES))")
+TMP_DIR=$(mktemp -d)
+OUTFILE="${1:-preview.png}"
+WINDOW_TITLE="nyancat-preview"
+NYANCAT="$(realpath "$(dirname "${BASH_SOURCE[0]}")/../nyancat.py")"
+
+# 130×66: terminal_width // 2 = 65 ≥ 64 cols, terminal_height - 1 = 65 ≥ 64 rows
+GEOMETRY="130x66"
+
+montage_args=()
+total=${#SCHEMES[@]}
+idx=0
+
+for scheme in "${SCHEMES[@]}"; do
+    idx=$(( idx + 1 ))
+    screenshot="${TMP_DIR}/${scheme}.png"
+    echo "[${idx}/${total}] ${scheme}: launching..."
+
+    # Run nyancat in a background xterm with a known window title for later capture
+    xterm -title "${WINDOW_TITLE}" -geometry "${GEOMETRY}" \
+        -bg black -fg white -fs 12 \
+        -e "python3 ${NYANCAT} --scheme ${scheme}" &
+    xterm_pid=$!
+
+    # Wait for the window to be registered with the X server, then let the animation settle
+    until xdotool search --name "${WINDOW_TITLE}" &>/dev/null; do sleep 0.2; done
+    WIN_ID=$(xdotool search --name "${WINDOW_TITLE}" | tail -1)
+    echo "[${idx}/${total}] ${scheme}: capturing in 1s..."
+    sleep 1
+
+    import -window "$WIN_ID" "${screenshot}"
+    echo "[${idx}/${total}] ${scheme}: saved ${screenshot}"
+    montage_args+=(-label "${scheme}" "${screenshot}")
+
+    kill "${xterm_pid}" 2>/dev/null || true
+    wait "${xterm_pid}" 2>/dev/null || true
+done
+
+# Assemble all screenshots into a 4-column grid with scheme name labels
+echo "assembling grid -> ${OUTFILE}"
+montage "${montage_args[@]}" \
+    -geometry +8+8 \
+    -tile 4x \
+    -background '#111111' \
+    -fill white \
+    "${OUTFILE}"
+
+rm -rf "${TMP_DIR}"
+echo "done: ${OUTFILE}"
