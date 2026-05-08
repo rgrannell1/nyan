@@ -291,6 +291,28 @@ SCHEME_GERMANY: ColourScheme = {
     'rainbow': ',,******>>>>>+++++,,'
 }
 
+# Sailor Moon — pink ribbon, gold tiara, white fuku, cobalt skirt; dark space background
+SCHEME_SAILOR_MOON: ColourScheme = {
+    'colors': {
+        ',': '\033[48;5;54m',    # dark purple (space background)
+        '.': '\033[48;5;231m',   # white (fuku body)
+        "'": '\033[48;5;16m',    # black
+        '@': '\033[48;5;225m',   # very light pink (cat body)
+        '$': '\033[48;5;218m',   # Sailor Moon pink
+        '-': '\033[48;5;205m',   # hot pink (detail)
+        '>': '\033[48;5;205m',   # hot pink (ribbon)
+        '&': '\033[48;5;197m',   # deep pink
+        '+': '\033[48;5;220m',   # gold (tiara)
+        '#': '\033[48;5;111m',   # cobalt blue (skirt)
+        '=': '\033[48;5;75m',    # medium blue
+        ';': '\033[48;5;69m',    # deeper blue
+        '*': '\033[48;5;182m',   # muted pink (cat shadow)
+        '%': '\033[48;5;218m',   # pink
+    },
+    # pink (ribbon), gold (tiara), white (fuku), blue (skirt)
+    'rainbow': ',,$$$$++++....####,,',
+}
+
 SCHEMES: dict[str, ColourScheme] = {
     'rainbow': SCHEME_RAINBOW,
     'trans': SCHEME_TRANS,
@@ -304,4 +326,5 @@ SCHEMES: dict[str, ColourScheme] = {
     'poland': SCHEME_POLAND,
     'italy': SCHEME_ITALY,
     'greece': SCHEME_GREECE,
+    'sailor-moon': SCHEME_SAILOR_MOON,
 }
