@@ -53,6 +53,7 @@ NATIONAL_DAYS: dict[tuple[int, int], str] = {
     (10, 1): "cyprus",  # Cyprus Independence Day
     (10, 3): "germany",  # Tag der Deutschen Einheit
     (10, 12): "spain",  # Fiesta Nacional de España
+    (5, 30): "canary-islands",  # Día de Canarias
     (10, 28): "greece",  # Ochi Day
     (11, 11): "poland",  # Święto Niepodległości
 }

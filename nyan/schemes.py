@@ -313,6 +313,28 @@ SCHEME_SAILOR_MOON: ColourScheme = {
     "rainbow": ",,$$$$++++....####,,",
 }
 
+# Canary Islands — white top, light blue middle, canary yellow bottom
+SCHEME_CANARY_ISLANDS: ColourScheme = {
+    "colors": {
+        ",": "\033[48;5;17m",  # dark navy background
+        ".": "\033[48;5;231m",  # white (stars)
+        "'": "\033[48;5;16m",  # black
+        "@": "\033[48;5;230m",  # cream (cat body)
+        "$": "\033[48;5;228m",  # light yellow (cat body tint)
+        "-": "\033[48;5;226m",  # canary yellow (detail)
+        ">": "\033[48;5;226m",  # canary yellow (bottom stripe)
+        "&": "\033[48;5;220m",  # deeper yellow
+        "+": "\033[48;5;231m",  # white (top stripe)
+        "#": "\033[48;5;117m",  # light blue (middle stripe)
+        "=": "\033[48;5;81m",   # lighter blue
+        ";": "\033[48;5;75m",   # deeper light blue
+        "*": "\033[48;5;240m",  # grey
+        "%": "\033[48;5;228m",  # light yellow
+    },
+    # white (top), light blue (middle), canary yellow (bottom)
+    "rainbow": ",,++++++#####>>>>>,,",
+}
+
 SCHEMES: dict[str, ColourScheme] = {
     "rainbow": SCHEME_RAINBOW,
     "trans": SCHEME_TRANS,
@@ -326,5 +348,6 @@ SCHEMES: dict[str, ColourScheme] = {
     "poland": SCHEME_POLAND,
     "italy": SCHEME_ITALY,
     "greece": SCHEME_GREECE,
+    "canary-islands": SCHEME_CANARY_ISLANDS,
     "sailor-moon": SCHEME_SAILOR_MOON,
 }
