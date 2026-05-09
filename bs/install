@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+
+COMPLETION_DIR="${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/plugins/zsh-completions/src"
+
 uv tool install . --reinstall
+install -m 644 nyan/_nyan "$COMPLETION_DIR/_nyan"

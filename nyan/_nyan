@@ -1,0 +1,29 @@
+#compdef nyan
+
+# ZSH completion for the nyan terminal animation command.
+
+_nyan() {
+    local -a schemes
+    schemes=(
+        'rainbow:Classic nyancat rainbow trail'
+        'trans:Trans pride colours'
+        'ireland:Irish tricolour'
+        'cyprus:Cyprus flag colours'
+        'spain:Spanish flag colours'
+        'india:Indian flag colours'
+        'sealand:Principality of Sealand'
+        'pinks:Hot pinks and magentas'
+        'germany:German Bundesflagge'
+        'poland:Polish flag colours'
+        'italy:Italian tricolour'
+        'greece:Greek flag colours'
+        'sailor-moon:Sailor Moon colours'
+    )
+
+    _arguments \
+        '(--random)--scheme[Colour scheme]:scheme:(($schemes))' \
+        '(--scheme)--random[Pick a random colour scheme]' \
+        '--help[Show help message]'
+}
+
+_nyan "$@"
