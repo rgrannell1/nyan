@@ -44,6 +44,7 @@ PRIDE_MONTH = 6  # June
 
 # Scheme auto-selected on each country's national day (month, day)
 NATIONAL_DAYS: dict[tuple[int, int], str] = {
+    (5, 1): "labour-day",  # International Workers' Day
     (3, 8): "pinks",  # International Women's Day
     (3, 17): "ireland",  # St. Patrick's Day
     (3, 25): "greece",  # Greek Independence Day

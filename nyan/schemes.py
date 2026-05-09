@@ -335,6 +335,28 @@ SCHEME_CANARY_ISLANDS: ColourScheme = {
     "rainbow": ",,++++++#####>>>>>,,",
 }
 
+# Labour Day — the red flag of the international labour movement
+SCHEME_LABOUR_DAY: ColourScheme = {
+    "colors": {
+        ",": "\033[48;5;17m",  # dark navy background
+        ".": "\033[48;5;231m",  # white (stars)
+        "'": "\033[48;5;16m",  # black
+        "@": "\033[48;5;224m",  # light pink (cat body — warm tint)
+        "$": "\033[48;5;210m",  # salmon (cat body tint)
+        "-": "\033[48;5;196m",  # bright red (detail)
+        ">": "\033[48;5;196m",  # bright red (rainbow)
+        "&": "\033[48;5;160m",  # medium red
+        "+": "\033[48;5;203m",  # lighter red
+        "#": "\033[48;5;124m",  # dark red
+        "=": "\033[48;5;88m",   # deeper red
+        ";": "\033[48;5;52m",   # darkest red
+        "*": "\033[48;5;240m",  # grey
+        "%": "\033[48;5;210m",  # salmon
+    },
+    # solid red — the labour movement flag
+    "rainbow": ",,>>>>>>>>>>>>>>>>,,",
+}
+
 SCHEMES: dict[str, ColourScheme] = {
     "rainbow": SCHEME_RAINBOW,
     "trans": SCHEME_TRANS,
@@ -349,5 +371,6 @@ SCHEMES: dict[str, ColourScheme] = {
     "italy": SCHEME_ITALY,
     "greece": SCHEME_GREECE,
     "canary-islands": SCHEME_CANARY_ISLANDS,
+    "labour-day": SCHEME_LABOUR_DAY,
     "sailor-moon": SCHEME_SAILOR_MOON,
 }
