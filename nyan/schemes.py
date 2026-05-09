@@ -357,6 +357,28 @@ SCHEME_LABOUR_DAY: ColourScheme = {
     "rainbow": ",,>>>>>>>>>>>>>>>>,,",
 }
 
+# Halloween — orange and purple on a dark purple background
+SCHEME_HALLOWEEN: ColourScheme = {
+    "colors": {
+        ",": "\033[48;5;53m",   # dark purple background
+        ".": "\033[48;5;208m",  # orange (stars become jack-o-lantern glows)
+        "'": "\033[48;5;16m",   # black
+        "@": "\033[48;5;223m",  # light orange (cat body)
+        "$": "\033[48;5;208m",  # orange (cat body tint)
+        "-": "\033[48;5;202m",  # deep orange (detail)
+        ">": "\033[48;5;208m",  # orange (rainbow)
+        "&": "\033[48;5;202m",  # deep orange
+        "+": "\033[48;5;129m",  # purple (rainbow)
+        "#": "\033[48;5;91m",   # dark purple
+        "=": "\033[48;5;55m",   # deeper purple
+        ";": "\033[48;5;53m",   # darkest purple
+        "*": "\033[48;5;240m",  # grey (cat shadow)
+        "%": "\033[48;5;215m",  # light orange
+    },
+    # orange and purple alternating — classic Halloween colours
+    "rainbow": ",,>>>>++++>>>>++++,,",
+}
+
 SCHEMES: dict[str, ColourScheme] = {
     "rainbow": SCHEME_RAINBOW,
     "trans": SCHEME_TRANS,
@@ -372,5 +394,6 @@ SCHEMES: dict[str, ColourScheme] = {
     "greece": SCHEME_GREECE,
     "canary-islands": SCHEME_CANARY_ISLANDS,
     "labour-day": SCHEME_LABOUR_DAY,
+    "halloween": SCHEME_HALLOWEEN,
     "sailor-moon": SCHEME_SAILOR_MOON,
 }
