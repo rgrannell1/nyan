@@ -167,6 +167,7 @@ class Nyancat:
 
     def run(self):
         frame_idx = 0
+        start_time = time.monotonic()
         sys.stdout.write(ANSI_HIDE_CURSOR)
         sys.stdout.write(ANSI_CLEAR_SCREEN)
         try:
@@ -188,9 +189,14 @@ class Nyancat:
 
                 frame_idx = (frame_idx + 1) % len(frames)
                 time.sleep(FRAME_DELAY_SECS)
+        except KeyboardInterrupt:
+            pass
         finally:
+            elapsed = round(time.monotonic() - start_time)
+            unit = "second" if elapsed == 1 else "seconds"
             sys.stdout.write(ANSI_SHOW_CURSOR)
             sys.stdout.write(ANSI_RESET + "\n")
+            print(f"nyaned for {elapsed} {unit}")
 
 
 def main():
