@@ -1,14 +1,14 @@
 # Nyancat terminal animation — renders 12-frame loop with ANSI colour to stdout.
 import argparse
 import datetime
-import os
 import random
+import shutil
 import signal
 import sys
 import time
 
-from frame import frames
-from schemes import ColourScheme, SCHEMES
+from nyan.frame import frames
+from nyan.schemes import ColourScheme, SCHEMES
 
 
 FRAME_HEIGHT = 64
@@ -60,7 +60,7 @@ NATIONAL_DAYS: dict[tuple[int, int], str] = {
 
 def terminal_size():
     """Return (rows, cols) of the current terminal."""
-    size = os.get_terminal_size()
+    size = shutil.get_terminal_size()
     return size.lines, size.columns
 
 

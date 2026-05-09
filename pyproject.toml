@@ -5,6 +5,13 @@ description = "Terminal Nyan Cat animation"
 requires-python = ">=3.14"
 dependencies = []
 
+[project.scripts]
+nyan = "nyan.nyancat:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [dependency-groups]
 dev = [
     "ruff>=0.15.12",

@@ -7,3 +7,5 @@ When neither flag is given, the scheme auto-selects by date: pinks on March 8 (I
 Add a rs preview command that launches each scheme in an xterm, screenshots it with ImageMagick import, and assembles the results into a labelled grid PNG using montage. The scheme list is read dynamically from schemes.py so new schemes appear automatically.
 
 Add a rs record command that launches nyancat in an xterm, captures frames using ImageMagick import at 12fps, and assembles them into an optimised GIF using ffmpeg's palette filter. Output defaults to nyan.gif in the project root. Scheme and duration are configurable as positional arguments.
+
+Package the project so it can be installed globally as the `nyan` command via `uv tool install`. The installed command must support all existing CLI arguments.
