@@ -254,16 +254,16 @@ SCHEME_GREECE: ColourScheme = {
         ".": "\033[48;5;231m",  # white (stars)
         "'": "\033[48;5;16m",  # black
         "@": "\033[48;5;230m",  # cream (cat body)
-        "$": "\033[48;5;75m",  # light Greek blue (cat body tint)
-        "-": "\033[48;5;26m",  # Greek blue (detail)
-        ">": "\033[48;5;27m",  # Greek blue
-        "&": "\033[48;5;26m",  # deeper blue
+        "$": "\033[48;5;81m",  # light Greek blue (cat body tint)
+        "-": "\033[48;5;39m",  # Greek blue (detail)
+        ">": "\033[48;5;39m",  # Greek blue
+        "&": "\033[48;5;33m",  # medium blue
         "+": "\033[48;5;231m",  # white
-        "#": "\033[48;5;33m",  # medium blue
-        "=": "\033[48;5;26m",  # Greek blue
-        ";": "\033[48;5;19m",  # dark blue
+        "#": "\033[48;5;75m",  # light blue
+        "=": "\033[48;5;33m",  # Greek blue
+        ";": "\033[48;5;27m",  # deeper blue
         "*": "\033[48;5;240m",  # grey
-        "%": "\033[48;5;75m",  # light blue
+        "%": "\033[48;5;81m",  # light blue
     },
     # nine stripes: blue-white-blue-white-blue-white-blue-white-blue
     "rainbow": ",,>>++>>+>>+>>+>>>,,",

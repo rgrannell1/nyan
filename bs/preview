@@ -15,11 +15,10 @@ for cmd in python3 xterm xdotool import montage; do
     command -v "$cmd" &>/dev/null || { echo "error: $cmd is required" >&2; exit 1; }
 done
 
-mapfile -t SCHEMES < <(python3 -c "from schemes import SCHEMES; print('\n'.join(SCHEMES))")
+mapfile -t SCHEMES < <(uv run python -c "from nyan.schemes import SCHEMES; print('\n'.join(SCHEMES))")
 TMP_DIR=$(mktemp -d)
 OUTFILE="${1:-preview.png}"
 WINDOW_TITLE="nyancat-preview"
-NYANCAT="$(realpath "$(dirname "${BASH_SOURCE[0]}")/../nyancat.py")"
 
 # 130×66: terminal_width // 2 = 65 ≥ 64 cols, terminal_height - 1 = 65 ≥ 64 rows
 GEOMETRY="130x66"
@@ -36,7 +35,7 @@ for scheme in "${SCHEMES[@]}"; do
     # Run nyancat in a background xterm with a known window title for later capture
     xterm -title "${WINDOW_TITLE}" -geometry "${GEOMETRY}" \
         -bg black -fg white -fs 12 \
-        -e "python3 ${NYANCAT} --scheme ${scheme}" &
+        -e "nyan --scheme ${scheme}" &
     xterm_pid=$!
 
     # Wait for the window to be registered with the X server, then let the animation settle
